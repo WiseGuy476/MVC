@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Shopping.Models.Shopping>
+
+@{
+    ViewBag.Title = "Shopping";
+}
+
+<h2>Shop</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShoppingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShoppingName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ShoppingID }) 
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<body>
+    <script>
+
+         function dis(val)
+         {
+             document.getElementById("result").value+=val
+         }
+
+
+         function solve()
+         {
+             let x = document.getElementById("result").value
+             let y = eval(x)
+             document.getElementById("result").value = y
+         }
+
+
+         function clr()
+         {
+             document.getElementById("result").value = ""
+         }
+    </script>
+
+    <style>
+        table {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .title1 {
+            margin-bottom: 10px;
+            text-align: center;
+            width: 210px;
+            color: crimson;
+            border: solid black 2px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        input[type="button"] {
+            background-color: crimson;
+            color: black;
+            border: solid black 2px;
+            width: 100%
+        }
+
+        input[type="text"] {
+            background-color: white;
+            border: solid black 2px;
+            width: 100%
+        }
+    </style>
+
+
+
+    <div class=title1>Kalkulator</div>
+    <table border="1">
+        <tr>
+            <td colspan="3"><input type="text" id="result" /></td>
+
+            <td><input type="button" value="c" onclick="clr()" /> </td>
+        </tr>
+        <tr>
+
+            <td><input type="button" value="1" onclick="dis('1')" /> </td>
+            <td><input type="button" value="2" onclick="dis('2')" /> </td>
+            <td><input type="button" value="3" onclick="dis('3')" /> </td>
+            <td><input type="button" value="/" onclick="dis('/')" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="dis('4')" /> </td>
+            <td><input type="button" value="5" onclick="dis('5')" /> </td>
+            <td><input type="button" value="6" onclick="dis('6')" /> </td>
+            <td><input type="button" value="-" onclick="dis('-')" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="dis('7')" /> </td>
+            <td><input type="button" value="8" onclick="dis('8')" /> </td>
+            <td><input type="button" value="9" onclick="dis('9')" /> </td>
+            <td><input type="button" value="+" onclick="dis('+')" /> </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="." onclick="dis('.')" /> </td>
+            <td><input type="button" value="0" onclick="dis('0')" /> </td>
+
+            <td><input type="button" value="=" onclick="solve()" /> </td>
+            <td><input type="button" value="*" onclick="dis('*')" /> </td>
+        </tr>
+    </table>
+</body>
